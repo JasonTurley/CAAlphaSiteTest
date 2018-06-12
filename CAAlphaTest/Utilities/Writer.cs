@@ -45,7 +45,6 @@ namespace CAAlphaTest.Utilities
             InputInfoById(driver, "pwdCntrl", gen.GenerateMyPassword() + Keys.Enter);
         }
 
-
         /// <summary>
         /// Fills in "Login Credentials" field with arbitary user info
         /// </summary>
