@@ -11,10 +11,10 @@ namespace CAAlphaTest.Utilities
     public class Writer
     {
         private Generator gen = new Generator();
-        
+        private Navigator nav = new Navigator();
 
         /// <summary>
-        /// Fills in the input box selected by `attribute` with the text in `text`
+        /// Fills in the input box selected by id `attribute` with the text `text`
         /// </summary>
         /// <param name="driver"></param>
         /// <param name="attribute"></param>
@@ -24,6 +24,16 @@ namespace CAAlphaTest.Utilities
             driver.FindElement(By.Id(attribute)).SendKeys(text);
         }
 
+        /// <summary>
+        /// Fills in the input box selected by class 'attribute' with the text `text`
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <param name="attribute"></param>
+        /// <param name="text"></param>
+        public void InputInfoByClass(IWebDriver driver, string attribute, string text)
+        {
+            driver.FindElement(By.ClassName(attribute)).SendKeys(text);
+        }
 
         /// <summary>
         /// Fills in login field with invalid information
@@ -31,8 +41,8 @@ namespace CAAlphaTest.Utilities
         /// <param name="driver"></param>
         public void WriteInvalidLogin(IWebDriver driver)
         {
-            InputInfoById(driver, "emailCntrl", gen.GenerateRandomEmail());
-            InputInfoById(driver, "pwdCntrl", gen.GenerateRandomPassword() + Keys.Enter);
+            InputInfoById(driver, "emailCntrl", gen.GenerateEmail());
+            InputInfoById(driver, "pwdCntrl", gen.GeneratePassword() + Keys.Enter);
         }
 
         /// <summary>
@@ -51,10 +61,10 @@ namespace CAAlphaTest.Utilities
         /// <param name="driver"></param>
         public void WriteLoginCredentials(IWebDriver driver)
         {
-            InputInfoById(driver, "email_ques_187", gen.GenerateRandomEmail());
-            InputInfoById(driver, "email_ques_1879900", gen.GenerateRandomEmail());
-            InputInfoById(driver, "password_ques_1", gen.GenerateRandomPassword());
-            InputInfoById(driver, "password_ques_19900", gen.GenerateRandomPassword());
+            InputInfoById(driver, "email_ques_187", gen.GenerateEmail());
+            InputInfoById(driver, "email_ques_1879900", gen.GenerateEmail());
+            InputInfoById(driver, "password_ques_1", gen.GeneratePassword());
+            InputInfoById(driver, "password_ques_19900", gen.GeneratePassword());
         }
 
         /// <summary>
@@ -63,8 +73,22 @@ namespace CAAlphaTest.Utilities
         /// <param name="driver"></param>
         public void WriteRegistrationInformation(IWebDriver driver)
         {
-            InputInfoById(driver, "text_ques_173", gen.GenerateRandomFirstName());
-            InputInfoById(driver, "text_ques_175", gen.GenerateRandomLastName());
+            // Enter first and last names
+            InputInfoById(driver, "text_ques_173", gen.GenerateFirstName());
+            InputInfoById(driver, "text_ques_175", gen.GenerateLastName());
+            nav.ClickMeId(driver, "add_ques_182");
+
+            // Enter address
+            List<string> address = gen.GenerateAddress();
+            InputInfoById(driver, "add1_ques_182", address[0]);     // Address line 1
+            InputInfoById(driver, "city_ques_182", address[1]);     // City
+            //InputInfoById(driver, "", address[2]);                  // FIXME: State
+            InputInfoById(driver, "zip_ques_182", address[3]);      // Zip code
+            nav.ClickMeId(driver, "verifyAddress_ques_182");
+
+            // Enter phone number and date of birth
+            InputInfoById(driver, "phone_ques_189", gen.GeneratePhoneNumber());
+            nav.ClickMeClass(driver, "chzn-single");
         }
     }
 }

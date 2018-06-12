@@ -11,9 +11,14 @@ namespace CAAlphaTest.Utilities
     public class Navigator
     {
 
-        public void ClickMeId(IWebDriver driver, string id)
+        public void ClickMeId(IWebDriver driver, string idName)
         {
-            driver.FindElement(By.Id(id)).Click();
+            driver.FindElement(By.Id(idName)).Click();
+        }
+
+        public void ClickMeClass(IWebDriver driver, string className)
+        {
+            driver.FindElement(By.ClassName(className)).Click();
         }
 
         public void ClickMeLink(IWebDriver driver, string id)

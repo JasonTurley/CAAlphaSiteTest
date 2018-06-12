@@ -1,30 +1,45 @@
-﻿namespace CAAlphaTest.Utilities
+﻿using System.Collections.Generic;
+
+namespace CAAlphaTest.Utilities
 {
     public class Generator
     {
-        public string GenerateRandomEmail()
+        public string GenerateEmail()
         {
             return "random@mailinator.com";
         }
 
-        public string GenerateRandomPassword()
+        public string GeneratePassword()
         {
             return "$Password-1234";
         }
 
-        public string GenerateRandomFirstName()
+        public string GenerateFirstName()
         {
             return "D'ævis-Kováčevic";
         }
 
-        public string GenerateRandomLastName()
+        public string GenerateLastName()
         {
             return "Airást Oćkr-Schülr";
         }
 
-        public string GenerateRandomAddress()
+        public List<string> GenerateAddress()
         {
-            return "3033 Wilson Blvd;Suite 500;;Arlington;;Virginia;22201;1=3033 Wilson Blvd;Ste 500;;Arlington;Arlington;VA;22201-3863;United States of America";
+            List<string> address = new List<string>
+            {
+                "3033 Wilson Blvd, Suite 500",     // Addr line 1
+                "Arlington",            // City
+                "Virginia",             // State
+                "22201"                 // Zip code
+            };
+
+            return address;
+        }
+
+        public string GeneratePhoneNumber()
+        {
+            return "703-898-1234";
         }
 
         public string GenerateMyEmail()

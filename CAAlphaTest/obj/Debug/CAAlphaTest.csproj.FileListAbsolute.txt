@@ -24,3 +24,11 @@ C:\Users\jturley\Downloads\CAAlphaTest-master\CAAlphaTest\CAAlphaTest\bin\Debug\
 C:\Users\jturley\Downloads\CAAlphaTest-master\CAAlphaTest\CAAlphaTest\bin\Debug\WebDriver.dll
 C:\Users\jturley\Downloads\CAAlphaTest-master\CAAlphaTest\CAAlphaTest\bin\Debug\WebDriver.xml
 C:\Users\jturley\Downloads\CAAlphaTest-master\CAAlphaTest\CAAlphaTest\obj\Debug\CAAlphaTest.csprojResolveAssemblyReference.cache
+C:\Users\jturley\Desktop\CAAlphaSiteTest\CAAlphaTest\bin\Debug\CAAlphaTest.exe.config
+C:\Users\jturley\Desktop\CAAlphaSiteTest\CAAlphaTest\obj\Debug\CAAlphaTest.exe
+C:\Users\jturley\Desktop\CAAlphaSiteTest\CAAlphaTest\obj\Debug\CAAlphaTest.pdb
+C:\Users\jturley\Desktop\CAAlphaSiteTest\CAAlphaTest\bin\Debug\CAAlphaTest.exe
+C:\Users\jturley\Desktop\CAAlphaSiteTest\CAAlphaTest\bin\Debug\CAAlphaTest.pdb
+C:\Users\jturley\Desktop\CAAlphaSiteTest\CAAlphaTest\bin\Debug\WebDriver.dll
+C:\Users\jturley\Desktop\CAAlphaSiteTest\CAAlphaTest\bin\Debug\WebDriver.xml
+C:\Users\jturley\Desktop\CAAlphaSiteTest\CAAlphaTest\obj\Debug\CAAlphaTest.csprojResolveAssemblyReference.cache

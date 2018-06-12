@@ -23,6 +23,7 @@ namespace CAAlphaTest.TestScripts
         {
             _driver = new FirefoxDriver();
             _driver.Navigate().GoToUrl(baseUrl);
+            _driver.Manage().Window.Maximize();
         }
 
         /// <summary>
