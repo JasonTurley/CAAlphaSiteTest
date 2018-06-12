@@ -62,10 +62,15 @@ namespace CAAlphaTest.TestScripts
             nav.ClickMeLink(_driver, "create an account");
         }
 
-
         /// <summary>
-        /// Create new account for first year
+        /// Signs user out of account
         /// </summary>
+        public void SignOutUser()
+        {
+            ValidUserLogin();
+            nav.ClickMeId(_driver, "appLogOff");
+        }
+
         public void CreateFirstYearStudent()
         {
             LoadNewUserPage();
@@ -81,6 +86,5 @@ namespace CAAlphaTest.TestScripts
             // Fill in user registration information
             writer.WriteRegistrationInformation(_driver);
         }
-
     }
 }

@@ -13,7 +13,7 @@ namespace SmokeTest
     {
 
         AppBasicLogin testAppBasicLogin = new AppBasicLogin();
-
+        AppCreate testAppCreate = new AppCreate();
 
         //[OneTimeSetUpAttribute]
         [Test]
@@ -40,6 +40,11 @@ namespace SmokeTest
             testAppBasicLogin.ValidUserLogin();
         }
        
+        [Test]
+        public void TestSignOutUser()
+        {
+            testAppBasicLogin.SignOutUser();
+        }
         [Test]
         public void TestCreateFirstYearStudent()
         {

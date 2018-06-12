@@ -51,6 +51,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestScripts\AppBasicLogin.cs" />
+    <Compile Include="TestScripts\AppCreate.cs" />
     <Compile Include="Utilities\Generator.cs" />
     <Compile Include="Utilities\Navigator.cs" />
     <Compile Include="Utilities\Writer.cs" />
