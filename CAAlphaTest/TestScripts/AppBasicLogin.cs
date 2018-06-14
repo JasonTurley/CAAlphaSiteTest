@@ -1,7 +1,8 @@
-﻿using OpenQA.Selenium;
+﻿
+using System;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using CAAlphaTest;
 using CAAlphaTest.Utilities;
 
 namespace CAAlphaTest.TestScripts
@@ -12,16 +13,21 @@ namespace CAAlphaTest.TestScripts
         private IWebDriver _driver;
         private string baseUrl = "https://fresh.alpha.devca.net/";
         private const string continueId = "registerContinue";
-        private Navigator nav = new Navigator();
-        private Generator gen = new Generator();
-        private Writer writer = new Writer();
+        private Navigator _nav = new Navigator();
+        private Generator _gen = new Generator();
+        private Writer _writer = new Writer();
        
+
+        public AppBasicLogin(IWebDriver driver)
+        {
+            this._driver = driver;
+        }
+
         /// <summary>
         /// Open Firefox browser and navigate to Common App Alpha website
         /// </summary>
         public void LoadLoginPage()
         {
-            _driver = new FirefoxDriver();
             _driver.Navigate().GoToUrl(baseUrl);
             _driver.Manage().Window.Maximize();
         }
@@ -41,7 +47,7 @@ namespace CAAlphaTest.TestScripts
         public void InvalidUserLogin()
         {
             LoadLoginPage();
-            writer.WriteInvalidLogin(_driver);
+            _writer.WriteInvalidLogin(_driver);
         }
 
         /// <summary>
@@ -50,7 +56,7 @@ namespace CAAlphaTest.TestScripts
         public void ValidUserLogin()
         {
             LoadLoginPage();
-            writer.WriteValidLogin(_driver);
+            _writer.WriteValidLogin(_driver);
         }
 
         /// <summary>
@@ -59,7 +65,7 @@ namespace CAAlphaTest.TestScripts
         public void LoadNewUserPage()
         {
             LoadLoginPage();
-            nav.ClickMeLink(_driver, "create an account");
+            _nav.ClickMeLink(_driver, "create an account");
         }
 
         /// <summary>
@@ -68,7 +74,10 @@ namespace CAAlphaTest.TestScripts
         public void SignOutUser()
         {
             ValidUserLogin();
-            nav.ClickMeId(_driver, "appLogOff");
+
+            // Wait for page to load before seaching for sign out button
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
+            _nav.ClickMeId(_driver, "appLogOff");
         }
 
         public void CreateFirstYearStudent()
@@ -76,15 +85,15 @@ namespace CAAlphaTest.TestScripts
             LoadNewUserPage();
 
             // Select first year student option
-            nav.ClickMeId(_driver, "radio_1");
-            nav.ClickMeId(_driver, continueId);
+            _nav.ClickMeId(_driver, "radio_1");
+            _nav.ClickMeId(_driver, continueId);
 
             // Fill in user login information
-            writer.WriteLoginCredentials(_driver);
-            nav.ClickMeId(_driver, continueId);
+            _writer.WriteLoginCredentials(_driver);
+            _nav.ClickMeId(_driver, continueId);
 
             // Fill in user registration information
-            writer.WriteRegistrationInformation(_driver);
+            _writer.WriteRegistrationInformation(_driver);
         }
     }
 }

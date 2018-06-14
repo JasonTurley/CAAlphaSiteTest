@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using CAAlphaTest;
+using OpenQA.Selenium.Firefox;
 using CAAlphaTest.TestScripts;
 
 namespace SmokeTest
@@ -12,13 +12,12 @@ namespace SmokeTest
     public class SmokeTestExecution
     {
 
-        AppBasicLogin testAppBasicLogin = new AppBasicLogin();
-        AppCreate testAppCreate = new AppCreate();
-
         //[OneTimeSetUpAttribute]
         [Test]
         public void TestLoadLoginPage()
         {
+            IWebDriver driver = new FirefoxDriver();
+            AppBasicLogin testAppBasicLogin = new AppBasicLogin(driver);
             testAppBasicLogin.LoadLoginPage();
         }
 
@@ -26,28 +25,38 @@ namespace SmokeTest
         [Test]
         public void TestTearDownBrowser()
         {
+            IWebDriver driver = new FirefoxDriver();
+            AppBasicLogin testAppBasicLogin = new AppBasicLogin(driver);
             testAppBasicLogin.TearDownBrowser();
         }
         [Test]
         public void TestInvalidUserLogIn()
         {
+            IWebDriver driver = new FirefoxDriver();
+            AppBasicLogin testAppBasicLogin = new AppBasicLogin(driver);
             testAppBasicLogin.InvalidUserLogin();
         }
 
         [Test]
         public void TestUserLogin()
         {
+            IWebDriver driver = new FirefoxDriver();
+            AppBasicLogin testAppBasicLogin = new AppBasicLogin(driver);
             testAppBasicLogin.ValidUserLogin();
         }
        
         [Test]
         public void TestSignOutUser()
         {
+            IWebDriver driver = new FirefoxDriver();
+            AppBasicLogin testAppBasicLogin = new AppBasicLogin(driver);
             testAppBasicLogin.SignOutUser();
         }
         [Test]
         public void TestCreateFirstYearStudent()
         {
+            IWebDriver driver = new FirefoxDriver();
+            AppBasicLogin testAppBasicLogin = new AppBasicLogin(driver);
             testAppBasicLogin.CreateFirstYearStudent();
         }
     }
