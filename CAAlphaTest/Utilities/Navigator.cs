@@ -11,9 +11,9 @@ namespace CAAlphaTest.Utilities
             driver.FindElement(By.Id(idName)).Click();
         }
 
-        public void ClickMeClass(IWebDriver driver, string className)
+        public void ClickMeXPath(IWebDriver driver, string path)
         {
-            driver.FindElement(By.ClassName(className)).Click();
+            driver.FindElement(By.ClassName(path)).Click();
         }
 
         public void ClickMeLink(IWebDriver driver, string id)

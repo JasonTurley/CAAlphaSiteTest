@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
@@ -78,6 +78,7 @@ namespace CAAlphaTest.Utilities
             InputInfoById(driver, "text_ques_175", _gen.GenerateLastName());
             _nav.ClickMeId(driver, "add_ques_182");
 
+            Thread.Sleep(2000);
             // Enter address
             List<string> address = _gen.GenerateAddress();
             InputInfoById(driver, "add1_ques_182", address[0]);     // Address line 1
@@ -86,9 +87,10 @@ namespace CAAlphaTest.Utilities
             InputInfoById(driver, "zip_ques_182", address[3]);      // Zip code
             _nav.ClickMeId(driver, "verifyAddress_ques_182");
 
+            Thread.Sleep(2000);
             // Enter phone number and date of birth
             InputInfoById(driver, "phone_ques_189", _gen.GeneratePhoneNumber());
-            _nav.ClickMeClass(driver, "chzn-single");
+            _nav.ClickMeXPath(driver, "/html/body/div[2]/div[1]/div/div/div/div[3]/div/div[1]/ul/li[5]/div/div[7]/a");
         }
     }
 }
