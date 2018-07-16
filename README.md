@@ -1,4 +1,4 @@
 # CAAlphaTest
 
-Automated test scripts written in Selenium and C# for The Common Application's alpha test site.
-This mini project was completed during my Summer 2018 internship there. 
+Automation test scripts for The Common Application's Alpha site. Utilizing the Selenium WebDriver framework, 
+this project was completed during my Summer 2018 internship with the company.
